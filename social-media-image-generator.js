@@ -57,15 +57,9 @@ class Generator {
   generate() {
     let self = this;
 
-    const postFiles = 
-      fs.readdirSync(_postFolder).map(fileName => {
-        return path.join(_postFolder, fileName)
-      }).filter(fileName => {
-        return fs.lstatSync(fileName).isFile()
-      })
-    
+    const postFiles = this.getPostFiles(_postFolder);
     //console.log(postFiles);
-  
+
     var postsProcessed = 0;
     postFiles.forEach((file) => {
       fs.readFile(file, 'utf8', function(err, data) {
@@ -93,6 +87,29 @@ class Generator {
       })
     });
     
+  }
+
+  /**
+   * Get all post MD files recursively
+   * @param {String} dirPath  Starting folder to look for MD files 
+   * @param {Array} allFiles  Array for storing files found
+   * @returns 
+   */
+  getPostFiles(dirPath, allFiles) {
+    let files = fs.readdirSync(dirPath);
+
+    allFiles = allFiles || [];
+
+    files.forEach((file) => {
+      if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+        allFiles = this.getPostFiles(dirPath + "/" + file, allFiles)
+        //console.log("DIR: " + file);
+      } else if (file.indexOf(".md")>=0) {
+        allFiles.push(path.join(dirPath, "/", file))
+        //console.log("FILE:" + path.join(_postFolder, file));
+      }
+    });
+    return allFiles;
   }
 
   /**
