@@ -59,7 +59,7 @@ For example:
 node index.js "./source/_posts" "./photos" "./template.handlebars" "./social-media-images"
 ```
 
-Only those posts with be processed, which have an existing ``photograph.file`` defined in the Frontmatter.
+Only those posts with be processed, which have an existing ``photograph.file`` defined in the Frontmatter and in case the corresponding social media file is not existing.
 
 ## Hexo integration
 

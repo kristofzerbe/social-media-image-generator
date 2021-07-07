@@ -67,10 +67,15 @@ class Generator {
 
         let content = frontmatter(data);
         //console.log(content.attributes)
+
+        let fileName = path.basename(file, path.extname(file));
     
-        if (content.attributes.photograph?.file) { // process posts with photo only
+        // only process posts with defined photograph file and if social media file is missing
+        if (content.attributes.photograph?.file && 
+            !fs.existsSync(path.join(_targetFolder, fileName + ".png"))) {
+          
           self.processPost(
-            path.basename(file, path.extname(file)),
+            fileName,
             {
               title: content.attributes.title, 
               subtitle: content.attributes.subtitle, 
@@ -140,7 +145,7 @@ class Generator {
 
     fs.writeFile(tempFile, html, (err) => {
       if(err) { throw(err); }
-      console.log(tempFile + " saved");
+      //console.log(tempFile + " saved");
     });
 
     await this.createImage(fileName, tempFile);
@@ -181,7 +186,7 @@ class Generator {
       ]
     });
 
-    console.log(imgFile + " generated");
+    console.log("\x1b[32m", "SOCIAL-MEDIA-IMAGE-GENERATOR: ", "\x1b[0m" + imgFile + " generated");
   
     return;
   }
