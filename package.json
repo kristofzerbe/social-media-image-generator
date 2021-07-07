@@ -10,14 +10,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kristofzerbe/---------------.git"
+    "url": "git+https://github.com/kristofzerbe/social-media-image-generator.git"
   },
   "author": "Kristof Zerbe <kristof.zerbe@gmail.com> (https://kiko.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kristofzerbe/------------/issues"
+    "url": "https://github.com/kristofzerbe/social-media-image-generator/issues"
   },
-  "homepage": "https://github.com/kristofzerbe/----------#readme",
+  "homepage": "https://github.com/kristofzerbe/social-media-image-generator#readme",
   "deprecated": false,
   "dependencies": {
     "front-matter": "^4.0.2",
