@@ -20,9 +20,9 @@ This script depends on 5 NPM packages, you need to install:
 
 The script itself needs no installation. Just store it in your project where you want.
 
-# Setup
+## Setup
 
-## Post Frontmatter
+### Post Frontmatter
 
 The Frontmatter of each post, has to have at least 3 entries:
 
@@ -39,11 +39,11 @@ photograph:
 ---
 ```
 
-## Photograph Folder
+### Photograph Folder
 
 All you photographs have to be stored in one specific folder, where the script is looking for the given ``photograph.file`` out of the posts Frontmatter.
 
-# Run the script
+## Run the script
 
 In the repository you will find an ``index.js``, which executes the generation script ``social-media-image-generator.js`` via node.js in the console. The generator has 4 parameters:
 
