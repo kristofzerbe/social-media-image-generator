@@ -1,0 +1,29 @@
+{
+  "name": "social-media-image-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [
+    "social media image",
+    "generator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristofzerbe/---------------.git"
+  },
+  "author": "Kristof Zerbe <kristof.zerbe@gmail.com> (https://kiko.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kristofzerbe/------------/issues"
+  },
+  "homepage": "https://github.com/kristofzerbe/----------#readme",
+  "deprecated": false,
+  "dependencies": {
+    "front-matter": "^4.0.2",
+    "handlebars": "^4.7.7",
+    "imagemin": "^8.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "puppeteer": "^10.1.0"
+  }
+}
