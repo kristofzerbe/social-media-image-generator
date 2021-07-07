@@ -24,10 +24,6 @@ class Generator {
 
   constructor(postFolder, photoFolder, templateFile, targetFolder) { 
       
-    if (!fs.existsSync(_tempFolder)){
-      fs.mkdirSync(_tempFolder);
-    }
-
     _postFolder = path.join(__dirname, postFolder);
     _photoFolder = path.join(__dirname, photoFolder);
     _templateFile = path.join(__dirname, templateFile);
@@ -140,6 +136,10 @@ class Generator {
 
     let html = _template(vars);
     //console.log(html);
+
+    if (!fs.existsSync(_tempFolder)) {
+      fs.mkdirSync(_tempFolder);
+    }
 
     let tempFile = path.join(_tempFolder, fileName + ".html");
 

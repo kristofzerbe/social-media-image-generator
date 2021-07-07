@@ -45,7 +45,7 @@ All you photographs have to be stored in one specific folder, where the script i
 
 # Run the script
 
-In the repository you will find an ``index.js``, which executes the generation script ``social-media-image-generator.js``. The generator has 4 parameters:
+In the repository you will find an ``index.js``, which executes the generation script ``social-media-image-generator.js`` via node.js in the console. The generator has 4 parameters:
 
 1. postFolder - Folder with your posts MD files
 2. photoFolder - Folder with your photographs
