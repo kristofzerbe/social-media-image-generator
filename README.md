@@ -58,7 +58,7 @@ The ``postFolder`` is processed recursively, so you can have much subfolders wit
 
 For example:
 ```js
-node index.js "./source/_posts" "./photos" "./template.html" "./social-media-images"
+node index.js "./source/_posts" "./photos" "./template.handlebars" "./social-media-images"
 ```
 
 Only those posts with be processed, which have an existing ``photograph.file`` defined in the Frontmatter.
