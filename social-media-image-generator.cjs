@@ -1,16 +1,13 @@
 'use strict';
 
-import * as fs from 'fs';
-import * as path from 'path';
-import url from 'url';
-import frontmatter from 'front-matter';
-import * as handlebars from 'handlebars/dist/handlebars.js'
-import puppeteer from "./node_modules/puppeteer/cjs-entry-core.js";
-import imagemin from "./node_modules/imagemin/index.js";
-import imageminPngquant from "./node_modules/imagemin-pngquant/index.js";
-
-//set __dirname for node 14.15 and above
-const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const fs = require("fs");
+const path = require("path");
+const url = require("url");
+const frontmatter = require("front-matter");
+const handlebars = require("handlebars");
+const puppeteer = require("puppeteer/cjs-entry");
+const imagemin = require("imagemin");
+const imageminPngquant = require("imagemin-pngquant");
 
 const _tempFolder = "./~temp";
 
@@ -75,6 +72,7 @@ class Generator {
             {
               title: content.attributes.title, 
               subtitle: content.attributes.subtitle, 
+              //photo: self.getFileUrl(path.join(_photoFolder, content.attributes.photograph.file))
               photo: url.pathToFileURL(path.join(_photoFolder, content.attributes.photograph.file))
             })
             .then(() => {
@@ -151,6 +149,7 @@ class Generator {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
+    //await page.goto(self.getFileUrl(tempFile));
     await page.goto(url.pathToFileURL(tempFile));
 
     await page.setViewport({
@@ -179,4 +178,4 @@ class Generator {
   }
 
 }
-export default Generator;
+module.exports.Generator = Generator
