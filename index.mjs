@@ -1,10 +1,10 @@
 
 /**
  * Execution:
- * node index.js "/source/_posts" "/photos" "template.html" "/social-media-images"
+ * node index.mjs "/source/_posts" "/photos" "template.handlebars" "/social-media-images"
  */
 
-import Generator from "./social-media-image-generator.js"
+import Generator from "./social-media-image-generator.mjs"
 
 const postFolder = process.argv[2].toString();
 const photoFolder = process.argv[3].toString();
