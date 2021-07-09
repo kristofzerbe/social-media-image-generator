@@ -9,6 +9,8 @@ const puppeteer = require("puppeteer/cjs-entry");
 const imagemin = require("imagemin");
 const imageminPngquant = require("imagemin-pngquant");
 
+const _currentPath = __dirname;
+
 const _tempFolder = "./~temp";
 
 var _postFolder;
@@ -21,10 +23,10 @@ class Generator {
 
   constructor(postFolder, photoFolder, templateFile, targetFolder) { 
       
-    _postFolder = path.join(__dirname, postFolder);
-    _photoFolder = path.join(__dirname, photoFolder);
-    _templateFile = path.join(__dirname, templateFile);
-    _targetFolder = path.join(__dirname, targetFolder);
+    _postFolder = path.join(_currentPath, postFolder);
+    _photoFolder = path.join(_currentPath, photoFolder);
+    _templateFile = path.join(_currentPath, templateFile);
+    _targetFolder = path.join(_currentPath, targetFolder);
 
     if (!fs.existsSync(_postFolder)) {
       throw "Post folder not found"

@@ -68,8 +68,50 @@ or:
 node index.cjs "./source/_posts" "./photos" "./template.handlebars" "./social-media-images"
 ```
 
-Only those posts with be processed, which have an existing ``photograph.file`` defined in the Frontmatter and in case the corresponding social media file is not existing.
+Only those posts with be processed, which have an existing ``photograph.file`` defined in the Frontmatter and if the corresponding social media file is not existing.
 
 ## Hexo integration
 
-...
+If you run your blog with Hexo, you can integrate the script into the generation pipeline.
+
+First, copy ``social-media-image-generator.cjs`` into a new folder called ``lib`` or something like that. Don't use the existing ``scripts`` folder, because Hexo's will run all scripts in this folder automatically.
+
+Create a new ``on-ready-generate-social-media-images.js`` in the above mentioned ``scripts`` folder, to trigger the social media script at the start at the pipeline:
+
+```js
+const log = require('hexo-log')({
+    debug: false,
+    silent: false
+});
+
+const Generator = require("../lib/social-media-image-generator.cjs").Generator;
+
+hexo.on("ready", function() {
+    
+    log.info("Running Social-Media-Image-Generator...");
+
+    const postFolder = "../source/_posts";
+    const photoFolder = "../photos";
+    const templateFile = "../template.handlebars";
+    const targetFolder = "../social-media-images";
+
+    const generator = new Generator(postFolder, photoFolder, templateFile, targetFolder);
+    generator.generate();
+
+});
+```
+
+Customize the values of the 4 parameter values to your needs or take it from your config by using ``hexo.config.<your-entry>``
+
+## Contributing
+
+Yes, please ... fork the project, make your changes and submit pull requests against the main branch.
+
+## History
+
+**1.0.0**
+- Initial version
+
+## License
+
+**MIT** : http://opensource.org/licenses/MIT
