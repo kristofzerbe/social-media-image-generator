@@ -41,6 +41,10 @@ class Generator {
       throw "Target folder not found"
     }
 
+    if (!fs.existsSync(_tempFolder)) {
+      fs.mkdirSync(_tempFolder);
+    }
+
     let source = fs.readFileSync(_templateFile).toString('utf8');
     _template = handlebars.compile(source);
       
@@ -123,10 +127,6 @@ class Generator {
 
     let html = _template(vars);
     //console.log(html);
-
-    if (!fs.existsSync(_tempFolder)) {
-      fs.mkdirSync(_tempFolder);
-    }
 
     let tempFile = path.join(_tempFolder, fileName + ".html");
 
