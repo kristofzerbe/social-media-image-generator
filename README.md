@@ -117,3 +117,7 @@ Yes, please ... fork the project, make your changes and submit pull requests aga
 ## License
 
 **MIT** : http://opensource.org/licenses/MIT
+
+## Codebase Vizualization
+For an inactive diagram, please visit [Repo Visualization App](https://octo-repo-visualization.vercel.app/?repo=kristofzerbe%2Fsocial-media-image-generator)...
+![Visualization of the codebase](./DIAGRAM.svg)
