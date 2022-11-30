@@ -7,7 +7,7 @@ Read more on [kiko.io - Generate Social Media Images Automatically](https://kiko
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/kristofzerbe/social-media-image-generator?label=version&style=flat-square)](https://github.com/kristofzerbe/social-media-image-generator/blob/main/package.json)
 [![issues](https://img.shields.io/github/issues/kristofzerbe/social-media-image-generator?label=github%20issues&style=flat-square)](https://github.com/kristofzerbe/social-media-image-generator/issues)
 
-There are **two versions** of the script: one is realized as an **ES Module** (``.mjs``) and the other with **CommonJS** (``mjs``).
+There are **two versions** of the script: one is realized as an **ES Module** (``.mjs``) and the other with **CommonJS** (``.cjs``).
 
 # Prerequisites
 
@@ -38,7 +38,7 @@ The Frontmatter of each post, has to have at least 3 entries:
 
 ```md
 ---
-title: 'Test 2'
+title: 'Test'
 subtitle: 'A simple Subtitle'
 photograph:
   file: DSC_9368.jpg
